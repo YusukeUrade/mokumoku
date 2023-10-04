@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
   
-  resources :users, only: %i[new create] do
+  resources :users, only: %i[new create show] do
     resource :favorites, only: %i[create destroy]
     get 'followings' => 'favorites#followings', as: 'followings'
     get 'followers' => 'favorites#followers', as: 'followers'
