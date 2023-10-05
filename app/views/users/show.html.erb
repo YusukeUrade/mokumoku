@@ -1,0 +1,10 @@
+<div class="pt-5 pb-5">
+  <div class="container">
+    <%= render 'mypage/shared/user_info', locals: @user %>
+    <% if current_user.following?(@user) %>
+      <%= link_to 'フォローを外す', user_favorites_path(@user.id), method: :delete %>
+    <% else %>
+      <%= link_to 'フォローする', user_favorites_path(@user.id), method: :post %>
+    <% end %>
+  </div>
+</div>
